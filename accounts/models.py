@@ -22,7 +22,7 @@ class Profile(models.Model):
     )
 
     def __str__(self):
-        return f"User profile: {self.get_full_name()}"
+        return self.user.username
 
     class Meta:
         verbose_name = "User Profile"
