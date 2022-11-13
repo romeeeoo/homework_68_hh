@@ -20,3 +20,10 @@ class Profile(models.Model):
         null=False,
         blank=False,
     )
+
+    def __str__(self):
+        return f"User profile: {self.get_full_name()}"
+
+    class Meta:
+        verbose_name = "User Profile"
+        verbose_name_plural = "User Profiles"
