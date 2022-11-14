@@ -3,6 +3,7 @@ from django.shortcuts import redirect
 from django.views.generic import CreateView
 
 from accounts.forms import SignUpForm
+from hh.settings import MEDIA_ROOT
 
 
 class RegisterView(CreateView):
@@ -18,7 +19,6 @@ class RegisterView(CreateView):
             user.profile.phone_number = form.cleaned_data.get("phone_number")
             user.profile.is_corporate = form.cleaned_data.get("is_corporate")
             user.profile.avatar = form.cleaned_data.get("avatar")
-            print(user.profile.avatar)
             user.save()
             login(request, user)
             return redirect("index")
