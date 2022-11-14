@@ -3,7 +3,6 @@ from django.shortcuts import redirect
 from django.views.generic import CreateView
 
 from accounts.forms import SignUpForm
-from hh.settings import MEDIA_ROOT
 
 
 class RegisterView(CreateView):
