@@ -25,7 +25,34 @@
                         <form action="" method="POST" enctype="multipart/form-data">
                             <div class="form">
                                 {% csrf_token %}
-                                {% bootstrap_form form %}
+                                {% bootstrap_field form.username placeholder="" %}
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <label class="form-check-label" for="id_is_corporate">Employer account?</label>
+                                        <input type="checkbox" name="is_corporate" class="form-check-input" id="id_is_corporate">
+                                    </div>
+                                </div>
+                                {#                                {% bootstrap_field form.is_corporate placeholder="" %}#}
+                                <div class="mb-3" id="first_name_field">
+                                    <label class="form-label" for="first_name_input" id="first_name_label">First
+                                        name</label>
+                                    <input type="text" name="first_name" maxlength="150" class="form-control"
+                                           id="first_name_input">
+                                </div>
+                                <div class="mb-3" id="second_name_field">
+                                    <label class="form-label" for="last_name_input">Last name</label>
+                                    <input type="text" name="last_name" maxlength="150" class="form-control"
+                                           id="last_name_input">
+                                </div>
+
+                                {#                                {% bootstrap_field form.first_name placeholder="" %}#}
+                                {#                                {% bootstrap_field form.last_name placeholder="" %}#}
+
+                                {% bootstrap_field form.email placeholder="" %}
+                                {% bootstrap_field form.avatar placeholder="" %}
+                                {% bootstrap_field form.phone_number placeholder="" %}
+                                {% bootstrap_field form.password1 placeholder="" %}
+                                {% bootstrap_field form.password2 placeholder="" %}
                                 {% bootstrap_button button_type='submit' content='Register' button_class='btn-primary' %}
                             </div>
                         </form>
@@ -45,9 +72,7 @@
             </div>
         </div>
     </div>
-
 </div>
-
-
+<script src="{% static "js/is_corporate.js" %}"></script>
 </body>
 </html>
