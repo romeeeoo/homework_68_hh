@@ -21,3 +21,8 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = get_user_model()
         fields = ("username", "first_name", "last_name", "email", "is_corporate", "avatar", "phone_number")
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField(required=True, label='Your username')
+    password = forms.CharField(required=True, label='Password', widget=forms.PasswordInput)

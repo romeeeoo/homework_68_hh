@@ -20,7 +20,8 @@
             <div class="col-lg-4 col-md-8 col-sm-11">
                 <div class="card">
                     <div class="container hh-logo col-5 mt-4">
-                        <img class="card-img-top" src="{% static "img/hh_logo.png" %}" alt="hh"></div>
+                        <img class="card-img-top" src="{% static "img/hh_logo.png" %}" alt="hh">
+                    </div>
                     <div class="card-body">
                         <form action="" method="POST" enctype="multipart/form-data">
                             <div class="form">
@@ -29,7 +30,8 @@
                                 <div class="mb-3">
                                     <div class="form-check">
                                         <label class="form-check-label" for="id_is_corporate">Employer account?</label>
-                                        <input type="checkbox" name="is_corporate" class="form-check-input" id="id_is_corporate">
+                                        <input type="checkbox" name="is_corporate" class="form-check-input"
+                                               id="id_is_corporate">
                                     </div>
                                 </div>
                                 <div class="mb-3" id="first_name_field">
@@ -65,7 +67,7 @@
             <div class="col-lg-4 col-md-8 col-sm-11">
                 <div class="card">
                     <div class="card-body d-flex justify-content-center">
-                        Have an account? <a href="#"><b class="ps-1">Log in</b></a>
+                        Have an account? <a href="{% url "login" %}"><b class="ps-1">Log in</b></a>
                     </div>
                 </div>
             </div>
