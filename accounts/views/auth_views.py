@@ -1,6 +1,6 @@
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout, get_user_model
 from django.shortcuts import redirect
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import CreateView, TemplateView, DetailView
 
 from accounts.forms import SignUpForm, LoginForm
 
@@ -52,5 +52,28 @@ class LoginView(TemplateView):
         #     return redirect(next)
         return redirect('index')
 
+
+def logout_view(request):
+    logout(request)
+    return redirect('index')
+
+
+class ProfileView(DetailView):
+    model = get_user_model()
+    template_name = "user_detail.html"
+    context_object_name = "user_obj"
+
+    # def get_context_data(self, **kwargs):
+    #     posts = self.object.posts.all()
+    #     print(request.user)
+    #     kwargs["posts"] = posts
+    #     return super().get_context_data(**kwargs)
+
+    # def post(self, request, *args, **kwargs):
+    #     account_id = request.POST.get("cust_id")
+    #     account = Account.objects.get(pk=account_id)
+    #     user = request.user
+    #     # здесь логика по отклику на вакансию/резюме
+    #     return redirect('index')
 
 

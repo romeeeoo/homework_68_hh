@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    hh profile
+{% endblock %}
+
+{% block content %}
+    <div class="mt-5">
+        <div class="row">
+         <div class="row">
+                {% if user.is_authenticated %}
+                    <a class="btn btn-light" href="{% url "logout" %}">Logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}">Login</a>
+                {% endif %}
+            </div>
+            {% if user_obj.avatar %}
+                <img class="avatar" src="{{ user_obj.avatar.url }}" alt="user picture">
+            {% endif %}
+        </div>
+        <div class="row">
+            <div class="col-lg-10">
+                <p class="user_full_name">{{ user_obj.username }}</p>
+                {% if user_obj.is_corporate %}
+                    <p>{{user_obj.first_name}}</p>
+                {% else %}
+                    <span>{{user_obj.first_name}} </span><span>{{user_obj.last_name}}</span>
+                {% endif %}
+                <p class="user_full_name">{{ user_obj.phone_number }}</p>
+                <p class="user_full_name">{{ user_obj.email }}</p>
+            </div>
+        </div>
+    </div>
+    <h2 class="text-center clear"> Your CVs</h2>
+{% endblock %}
+
+
+
