@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     console.log(userChangeBtn)
 
-    $(userChangeBtn).click(function (event) {
+    $(userChangeBtn).click(function openModel (event) {
         event.preventDefault()
         $.ajax({
             url: $(this).attr("href"),
@@ -24,11 +24,10 @@ $(document).ready(function () {
         });
     })
 
-    $("#id-modalUserChange").on("submit", "#id-profile-update-form", function (event) {
+    $("#id-modalUserChange").on("submit", "#id-profile-update-form", function performUpdate (event) {
         event.preventDefault()
         let form = $(this)
         let fd = new FormData(form[0]);
-        console.log(fd)
         $.ajax({
             url: form.attr("action"),
             data: fd,

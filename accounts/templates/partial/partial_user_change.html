@@ -1,7 +1,7 @@
 {% load django_bootstrap5 %}
 
 {#мульти парт инкрипт добавть в форму#}
-<form action="{% url "user_update" user_obj.pk %}" method="post" id="id-profile-update-form">
+<form action="{% url "user_update" user_obj.pk %}" id="id-profile-update-form">
     {% csrf_token %}
     <!-- Modal -->
                 <div class="modal-header">
