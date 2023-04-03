@@ -118,7 +118,7 @@ class UserChangeView(UpdateView):
         data = self.data
         data['forms_are_valid'] = True
         user_obj = self.object
-        data['html_user_detail'] = render_to_string("user_detail.html", {"user_obj": user_obj})
+        data['html_general_profile_info'] = render_to_string("partial/partial_general_profile_info.html", {"user_obj": user_obj})
         return JsonResponse(data)
 
     def form_invalid(self, form, profile_form, request):
@@ -133,4 +133,7 @@ class UserChangeView(UpdateView):
         if self.request.method == 'POST':
             form_kwargs['data'] = self.request.POST
             form_kwargs['files'] = self.request.FILES
+            print(form_kwargs)
+        print(form_kwargs)
+        print(self.object.profile.avatar)
         return ProfileChangeForm(**form_kwargs)

@@ -1,0 +1,20 @@
+{% load static %}
+
+<div class="row col-3">
+    {% if user_obj.profile.avatar %}
+        <img class="avatar img-fluid" src="{{ user_obj.profile.avatar.url }}" alt="user picture">
+    {% else %}
+        <img class="avatar img-fluid" src="{% static "default_avatar.png" %}">
+    {% endif %}
+</div>
+<div class="row mt-3">
+    <p class="user_full_name">{{ user_obj.get_full_name }}</p>
+    {% if user_obj.profile.phone_number %}
+        <p class="user_full_name">{{ user_obj.profile.phone_number }}</p>
+    {% endif %}
+    <p class="user_full_name">{{ user_obj.email }}</p>
+</div>
+<a class="btn btn-outline-secondary" id="id_user_update" href="{% url "user_update" user_obj.pk %}"
+   role="button" data-bs-toggle="modal" data-bs-target="#id-modalUserChange">update
+    profile
+</a>

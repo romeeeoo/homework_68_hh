@@ -9,7 +9,6 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    {% csrf_token %}
                     {% bootstrap_field profile_form.avatar %}
                     {% bootstrap_field form.first_name %}
                     {% bootstrap_field form.last_name %}

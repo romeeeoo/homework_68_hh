@@ -24,23 +24,28 @@ $(document).ready(function () {
         });
     })
 
-    $("#id-modalUserChange").on("submit", "#id-profile-update-form", function () {
-        // event.preventDefault()
+    $("#id-modalUserChange").on("submit", "#id-profile-update-form", function (event) {
+        event.preventDefault()
         let form = $(this)
+        let fd = new FormData(form[0]);
+        console.log(fd)
         $.ajax({
             url: form.attr("action"),
-            data: form.serialize(),
+            data: fd,
             method: "POST",
-            dataType: "JSON",
+            processData: false,
+            contentType: false,
+            // dataType: "JSON",
             success: function (response) {
                 if (response.forms_are_valid) {
-                    alert("User profile updated!");
-                }
-                else {
+                    $('#general_profile_info').html(response.html_general_profile_info)
+                    $('#id-modalUserChange').modal('hide');
+                    // alert("User profile updated!");
+                } else {
                     $("#id-modalUserChange .modal-content").html(response.html_forms)
                 }
             }
         });
-        return false;
+        // return false;
     });
 })
