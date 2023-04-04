@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    hh profile
+{% endblock %}
+
+{% block modal_window %}
+    <div class="modal fade show" id="id-modalUserChange" tabindex="-1" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container" id="general_profile_info">
+       {% include "partial/partial_general_profile_info.html" %}
+    </div>
+
+    <div class="container" id="type_related_profile_info">
+        {% if user_obj.is_corporate %}
+            {% include "partial/corporate_detail.html" %}
+        {% else %}
+            {% include "partial/employee_detail.html" %}
+        {% endif %}
+    </div>
+
+{% endblock %}
+
+
+
